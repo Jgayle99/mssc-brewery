@@ -12,6 +12,7 @@ import java.util.UUID;
 /**
  * Created by Joel Gayle on 12 Feb, 2020
  */
+@Deprecated
 @RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
