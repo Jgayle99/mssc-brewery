@@ -15,11 +15,11 @@ import java.util.UUID;
  */
 @RequestMapping("/api/v1/beer")
 @org.springframework.web.bind.annotation.RestController
-public class RestController {
+public class BeerController {
 
     private final BeerService beerService;
 
-    public RestController(BeerService beerService) {
+    public BeerController(BeerService beerService) {
         this.beerService = beerService;
     }
 
