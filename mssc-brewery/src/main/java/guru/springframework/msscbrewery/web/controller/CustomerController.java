@@ -12,7 +12,7 @@ import java.util.UUID;
 /**
  * Created by Joel Gayle on 12 Feb, 2020
  */
-@RequestMapping("/api/v1/customer")
+@RequestMapping("/api/v1/customer/")
 @RestController
 public class CustomerController {
 
@@ -34,12 +34,12 @@ public class CustomerController {
 
         HttpHeaders headers = new HttpHeaders();
         //todo add hostname to url
-        headers.add("Location", "/api/v1/customer" + savedDto.getId().toString());
+        headers.add("Location", "/api/v1/customer/" + savedDto.getId().toString());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
-    @PutMapping({"/{customerId"})
+    @PutMapping({"/{customerId}"})
     public ResponseEntity handleUpdate(@PathVariable("customerId") UUID customerId, @RequestBody CustomerDto customerDto){
 
         customerService.updateCustomer(customerId, customerDto);

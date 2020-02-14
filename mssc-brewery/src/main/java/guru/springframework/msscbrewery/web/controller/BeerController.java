@@ -13,7 +13,7 @@ import java.util.UUID;
  * Created by Joel Gayle on 12 Feb, 2020
  */
 @Deprecated
-@RequestMapping("/api/v1/beer")
+@RequestMapping("/api/v1/beer/")
 @RestController
 public class BeerController {
 
@@ -36,7 +36,7 @@ public class BeerController {
 
         HttpHeaders headers = new HttpHeaders();
         //todo add hostname to url
-        headers.add("Location", "/api/v1/beer" + savedDto.getId().toString());
+        headers.add("Location", "/api/v1/beer/" + savedDto.getId().toString());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
@@ -49,7 +49,7 @@ public class BeerController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping({"/{beerId"})
+    @DeleteMapping({"/{beerId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBeer(@PathVariable("beerId") UUID beerId){
         beerService.deleteById(beerId);

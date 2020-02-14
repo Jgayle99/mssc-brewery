@@ -6,13 +6,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.UUID;
 
 /**
  * Created by Joel Gayle on 12 Feb, 2020
  */
 
-@RequestMapping("/api/v2/beer")
+@RequestMapping("/api/v2/beer/")
 @RestController
 public class BeerControllerV2 {
 
@@ -35,7 +36,7 @@ public class BeerControllerV2 {
 
         HttpHeaders headers = new HttpHeaders();
         //todo add hostname to url
-        headers.add("Location", "/api/v2/beer" + savedDto.getId().toString());
+        headers.add("Location", "/api/v2/beer/" + savedDto.getId().toString());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
